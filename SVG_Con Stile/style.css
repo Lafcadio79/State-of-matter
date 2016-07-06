@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+header{
+	text-align: center;
+	border-bottom: 1px groove;
+}
+
+header h1{
+	border-bottom: 1px groove;
+}
+
+svg{
+	margin-top:5%;
+	margin-left:8%;
+	border: 1px groove #d3d3d3;
+	border-bottom-right-radius: 32px;
+	border-bottom-left-radius: 32px;
+	box-shadow: 5px 5px 5px grey;
+}
+
+#settings{
+	display: inline;
+	float: right;
+	margin-top: 10%;
+	margin-right: 10%;
+}

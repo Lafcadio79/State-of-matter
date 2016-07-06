@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="js/particle.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<title></title>
+</head>
+
+<body>
+
+
+	<header>
+		<h1>State of matter</h1>
+		<div id="smallbar"></div>
+	</header>
+
+  <svg width="650" height="450"></svg>
+
+  
+	<div id="settings">
+			<form action="" method="" >
+				<table>
+					<tr><th colspan="3">Settings</th></tr>
+					<tr><td><select id="shape"></select></td><td><select id="color"></select></td></tr>
+					<tr><td><label>Particles </label></td><td><input type="number" step="10" value="10" min="0" max="300" id="particles" /></td></tr>
+					<tr><td><label>Radius </label></td><td><input type="number" value="5" min="2" max="10" id="radius" /></td></tr>
+					<tr><td><label>Temp </label></td><td><input type="range" value="6" min="1" max="11"id="scale" /></td><td><label id="val"></label></td></tr>
+					<tr><td><input type="button" value="Start" id="startBtn" /></td><td><input type="button" value="Stop" id="stopBtn" /></td></tr>
+				</table>
+			</form>
+	</div>  
+	
+</body>
+
+</html>

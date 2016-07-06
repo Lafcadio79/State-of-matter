@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src=""></script>
+	<link rel="stylesheet" type="text/css" href="" />
+	<title></title>
+</head>
+
+<body>
+
+
+	<header>
+		<h3>particle location into a box of the grid</h3>
+	</header>
+
+	
+	
+	<svg width="200" height="200" style="border: 1px solid;" ></svg>
+	
+	
+	<script>
+	
+		var svg = document.getElementsByTagName("svg")[0];
+	
+		
+		// crea un nuovo elemento sul dato Namespace
+		function $_ceNS(tag){
+			return document.createElementNS("http://www.w3.org/2000/svg", tag);
+		}
+	
+		// disegna un cerchio
+		function drawCircle(svg_node, circle_x_pos, circle_y_pos, radius, color){
+			var circle = $_ceNS('circle');
+			circle.setAttribute("cx", circle_x_pos);
+			circle.setAttribute("cy", circle_y_pos);
+			circle.setAttribute("r", radius);
+			circle.setAttribute("stroke", color);		
+			circle.setAttribute("fill", "#fff");		
+			svg_node.appendChild(circle);
+		}
+	
+		// disegna una linea
+		function drawLine(svg_node, x1, x2, y1, y2, color, dash){
+			var line = $_ceNS("line");	
+			var dashArr = dash || 0;
+			line.setAttribute("x1", x1);
+			line.setAttribute("x2", x2);
+			line.setAttribute("y1", y1);
+			line.setAttribute("y2", y2);
+			line.setAttribute("stroke", color);
+			line.setAttribute("stroke-dasharray", dashArr);
+			svg_node.appendChild(line);
+		}
+
+		// inserisce un testo
+		function addText(svg_node, x, y, content, color){
+			var tx = $_ceNS("text");
+			tx.setAttribute("x", x);
+			tx.setAttribute("y", y);
+			tx.setAttribute("fill", color);
+			tx.textContent = content;
+			svg_node.appendChild(tx);
+		}
+	
+		var cx = svg.getAttribute("width")/2-1;
+		var cy = svg.getAttribute("height")/2-1;
+		drawCircle(svg, cx, cy, 42, "#000");
+		drawLine(svg, 48, 48, 26, 156, "#000");
+		drawLine(svg, 149, 149, 26, 156, "#000");
+		drawLine(svg, 15, 185, 148, 148, "#000");
+		drawLine(svg, 15, 185, 50, 50, "#000");
+		
+		drawLine(svg, cx, cx, cy, 166, "#000", 3);
+		drawLine(svg, cx, 48, cy, cy, "#000", 3);
+		drawLine(svg, 58, 58, cy, 166, "#000", 3);
+		drawLine(svg, 58, cx, 166, 166, "#000", 2);
+		addText(svg, 77, 162, "r", "#000");
+		addText(svg, 32, cy, "R", "#000");
+	
+		drawLine(svg, 48, 149, 175, 175, "#000");
+		drawLine(svg, 149, 149, 165, 185, "#000");
+		drawLine(svg, 48, 48, 165, 185, "#000");
+		addText(svg, 135, 190, "S", "#000");
+		
+	</script>
+	
+	
+
+</body>
+
+</html>

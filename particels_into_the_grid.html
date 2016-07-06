@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src=""></script>
+	<link rel="stylesheet" type="text/css" href="" />
+	<title></title>
+</head>
+
+<body>
+
+
+	<header>
+		<h3>particles arrangement into the whole grid</h3>
+	</header>
+
+	
+	
+	<svg width="400" height="400" style="border: 1px solid;" ></svg>
+	
+	
+	<script>
+	
+		var svg = document.getElementsByTagName("svg")[0];
+	
+		
+		// crea un nuovo elemento sul dato Namespace
+		function $_ceNS(tag){
+			return document.createElementNS("http://www.w3.org/2000/svg", tag);
+		}
+	
+		// disegna un cerchio
+		function drawCircle(svg_node, circle_x_pos, circle_y_pos, radius, color){
+			var circle = $_ceNS('circle');
+			circle.setAttribute("cx", circle_x_pos);
+			circle.setAttribute("cy", circle_y_pos);
+			circle.setAttribute("r", radius);
+			circle.setAttribute("stroke", color);		
+			circle.setAttribute("fill", "#fff");		
+			svg_node.appendChild(circle);
+		}
+	
+		// disegna una linea
+		function drawLine(svg_node, x1, x2, y1, y2, color, dash){
+			var line = $_ceNS("line");	
+			var dashArr = dash || 0;
+			line.setAttribute("x1", x1);
+			line.setAttribute("x2", x2);
+			line.setAttribute("y1", y1);
+			line.setAttribute("y2", y2);
+			line.setAttribute("stroke", color);
+			line.setAttribute("stroke-dasharray", dashArr);
+			svg_node.appendChild(line);
+		}
+
+		// inserisce un testo
+		function addText(svg_node, x, y, content, color){
+			var tx = $_ceNS("text");
+			tx.setAttribute("x", x);
+			tx.setAttribute("y", y);
+			tx.setAttribute("fill", color);
+			tx.textContent = content;
+			svg_node.appendChild(tx);
+		}
+		
+		var width = svg.getAttribute("width");
+		var height = svg.getAttribute("height");
+		
+		for(var i = 40; i < width; i+= 40){
+			drawLine(svg, i, i, 250, 400, "#000");
+			if( i < 160)
+				drawLine(svg, 0, width, 400-i, 400-i, "#000");
+		}
+			
+		for(var j = 20; j <= 100; j+=40){
+			for(var i = 0; i <= width; i+= 40){
+				drawCircle(svg, width-i+20, height-j, 15, "#000");
+			}
+		}
+	</script>
+	
+	
+
+</body>
+
+</html>
